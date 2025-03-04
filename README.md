@@ -1,50 +1,8 @@
 🚦 Traffic Flow Prediction Using TemporalCNN
+Traffic congestion is a major urban challenge, leading to delays, fuel wastage, and pollution. This project aims to predict future traffic volume using a Temporal Convolutional Network (TCN), helping in traffic management, route planning, and congestion control. The dataset used (data/traffic_volume_data.csv) contains historical traffic records, including timestamps, traffic volume, weather conditions (temperature, precipitation, wind speed), and road features (lane count, congestion level).
 
-1️⃣ Project Overview
-Predicts future traffic volume using Temporal Convolutional Network (TCN).
-Helps in traffic management, route planning, and congestion control.
-2️⃣ Dataset Details
-Data Source: data/traffic_volume_data.csv
-Includes:
-✅ Time-based traffic records (timestamps, days, seasons)
-✅ Traffic volume (vehicle count per time window)
-✅ Weather conditions (temperature, wind speed, etc.)
-✅ Road features (lane count, road type, congestion level)
-3️⃣ Data Preprocessing
-Handled missing values (drop/fill NaNs).
-Scaled and normalized features.
-Selected relevant features for better accuracy.
-Converted data into PyTorch tensors.
-4️⃣ Model Architecture
-Temporal Convolutional Network (TCN):
-✅ 1D Convolutional Layers – Learn short & long-term dependencies.
-✅ Causal & Dilated Convolutions – Ensure predictions depend only on past data.
-✅ Residual Connections – Improve gradient flow.
-✅ Fully Connected Layers – Output final prediction.
-Implemented in temporal_cnn_model.py.
-5️⃣ Model Training
-Loss Function: MSE Loss
-Optimizer: Adam (LR = 0.0015)
-Batch Size: 512
-Epochs: 100
-Metrics: MAE, RMSE, R² Score
-6️⃣ Model Testing & Predictions
-Used test_model.py to evaluate the trained model.
-Steps:
-✅ Load trained model (models/trained_model.pth).
-✅ Preprocess test data.
-✅ Make predictions & inverse transform results.
-✅ Compare predictions with actual values.
-✅ Plot results (Predicted vs. Actual traffic).
-7️⃣ Performance Metrics
-MAE: 583.38
-RMSE: 713.12
-R² Score: 0.84
-8️⃣ Summary
-✅ Built a TemporalCNN model for traffic prediction.
-✅ Preprocessed and cleaned traffic data.
-✅ Achieved R² = 0.84, indicating strong predictive power.
-✅ Visualized predictions vs. actual traffic trends.
-✅ Potential improvements for future enhancements.
+Before training the model, data preprocessing is performed to handle missing values, scale features, and convert the dataset into PyTorch tensors. The TCN model architecture consists of 1D convolutional layers to learn temporal dependencies, causal and dilated convolutions to ensure predictions rely only on past data, and residual connections to improve gradient flow. The model is implemented in temporal_cnn_model.py and trained using the Mean Squared Error (MSE) loss function, Adam optimizer (learning rate = 0.0015), with a batch size of 512 for 100 epochs. The key evaluation metrics include Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score.
 
-🚀 This model can optimize traffic systems, reduce congestion, and improve urban mobility!
+Once trained, the model is tested using test_model.py, where it loads the trained model (models/trained_model.pth), preprocesses test data, makes predictions, and plots results comparing predicted vs. actual traffic volume. The model achieves MAE = 583.38, RMSE = 713.12, and R² Score = 0.84, indicating strong predictive performance. The predictions closely align with actual traffic trends, making the model highly reliable for traffic forecasting.
+
+Overall, this project demonstrates how TemporalCNN can effectively predict traffic flow, contributing to improved urban mobility. The results show great potential for real-world applications, such as reducing congestion, optimizing traffic systems, and enhancing city planning.
